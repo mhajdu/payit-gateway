@@ -1,0 +1,18 @@
+{
+    "name": "mhajdu/payit-gateway",
+    "description": "Composer module for payit.sk \u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mhajdu\\PayitGateway\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Martin Hajdu",
+            "email": "jmhajdu@gmail.com"
+        }
+    ],
+    "require": {}
+}
