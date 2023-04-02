@@ -1,6 +1,6 @@
 {
     "name": "mhajdu/payit-gateway",
-    "description": "Composer module for payit.sk \u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D",
+    "description": "Composer library for payit.sk",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -14,5 +14,8 @@
             "email": "jmhajdu@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "illuminate/encryption": "^10.0",
+        "guzzlehttp/guzzle": "^7.2"
+    }
 }
