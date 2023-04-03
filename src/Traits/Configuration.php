@@ -18,10 +18,10 @@ trait Configuration {
             throw new \Exception('Missing Payit key or secret, check if you have set PAYIT_KEY and PAYIT_SECRET in your .env file');
         }
 
-        if(env('PAYIT_ENV') == 'production' || env('APP_ENV') == 'production') {
-            $this->payit_url = 'https://payit.sk';
-        } else {
+        if(env('PAYIT_ENV') == 'local' || env('APP_ENV') == 'local') {
             $this->payit_url = 'https://payit.sk/dev';
+        } else {
+            $this->payit_url = 'https://payit.sk/api/v1';
         }
     }
 
