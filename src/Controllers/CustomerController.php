@@ -19,11 +19,16 @@ class CustomerController {
     ];
 
     public function createCustomer($customer) {
-        //TODO: customer validation
         $body = [
-
+            'name' => $customer['name'] ?? '',
+            'email' => $customer['email'] ?? '',
+            'phone' => $customer['phone'] ?? '',
+            'address' => $customer['address'] ?? '',
+            'city' => $customer['city'] ?? '',
+            'zip' => $customer['zip'] ?? '',
+            'country' => $customer['country'] ?? '',
         ];
-        $response = Http::post($this->payit_url . $this->urls['create']['url'], [
+        $response = Http::post($this->payit_url . self::$urls['create']['url'], [
             'application_key' => $this->key,
             'data' => $this->encryptData($body)
         ]);
@@ -35,7 +40,7 @@ class CustomerController {
         $body = [
             'customer_id' => $customer_id
         ];
-        $response = Http::get($this->payit_url . $this->urls['get']['url'], [
+        $response = Http::get($this->payit_url . self::$urls['get']['url'], [
             'application_key' => $this->key,
             'data' => $this->encryptData($body)
         ]);
