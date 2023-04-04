@@ -2,9 +2,11 @@
 
 namespace Mhajdu\PayitGateway;
 
+use http\Env\Request;
 use Illuminate\Encryption\Encrypter;
 use Mhajdu\PayitGateway\Controllers\CustomerController;
 use Mhajdu\PayitGateway\Controllers\PaymentController;
+use Mhajdu\PayitGateway\Controllers\ProcessController;
 use Mhajdu\PayitGateway\Traits\Configuration;
 
 class Gateway {
@@ -47,5 +49,9 @@ class Gateway {
 
     public function getPayment($payment_id) {
         return $this->payment()->fetchPayment($payment_id);
+    }
+
+    public function processPayment(Request $request) {
+        return new ProcessController($request);
     }
 }

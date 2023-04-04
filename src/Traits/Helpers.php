@@ -7,6 +7,11 @@ use Illuminate\Encryption\Encrypter;
 trait Helpers {
     use Configuration;
 
+    public function decryptData($data):string {
+        $encrypter = new Encrypter($this->secret, 'AES-256-CBC');
+        return $encrypter->decrypt($data);
+    }
+
     /**
      * @param $data
      * @return string
