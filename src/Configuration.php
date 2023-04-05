@@ -10,7 +10,7 @@ class Configuration {
      * @param $secret
      * @return void
      */
-    public function createConfiguration($key = null, $secret = null) {
+    public function __construct($key = null, $secret = null) {
         $this->key = $key ?? env('PAYIT_KEY');
         $this->secret = $secret ?? env('PAYIT_SECRET');
 

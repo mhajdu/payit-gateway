@@ -8,7 +8,7 @@ use Mhajdu\PayitGateway\Traits\Helpers;
 class CustomerController {
     use Helpers;
 
-    public $config;
+    protected $config;
 
     public static $urls = [
         'create' => [
@@ -35,8 +35,8 @@ class CustomerController {
             'zip' => $customer['zip'] ?? '',
             'country' => $customer['country'] ?? '',
         ];
-        $response = Http::post($this->config->payit_url . self::$urls['create']['url'], [
-            'application_key' => $this->config->key,
+        $response = Http::post($this->config->getPayitUrl() . self::$urls['create']['url'], [
+            'application_key' => $this->config->getKey(),
             'data' => $this->encryptData($body)
         ]);
 
@@ -47,8 +47,8 @@ class CustomerController {
         $body = [
             'customer_id' => $customer_id
         ];
-        $response = Http::get($this->config->payit_url . self::$urls['get']['url'], [
-            'application_key' => $this->config->key,
+        $response = Http::get($this->config->getPayitUrl() . self::$urls['get']['url'], [
+            'application_key' => $this->config->getKey(),
             'data' => $this->encryptData($body)
         ]);
 
