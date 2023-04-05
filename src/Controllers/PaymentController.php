@@ -11,11 +11,11 @@ class PaymentController {
 
     public static $urls = [
         'create' => [
-            'url' => '/payment',
+            'url' => '/payments',
             'method' => 'POST',
         ],
         'get' => [
-            'url' => '/payment/get',
+            'url' => '/payments/get',
             'method' => 'GET',
         ]
     ];

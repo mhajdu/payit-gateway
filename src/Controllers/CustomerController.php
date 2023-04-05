@@ -12,11 +12,11 @@ class CustomerController {
 
     public static $urls = [
         'create' => [
-            'url' => '/customer',
+            'url' => '/customers',
             'method' => 'POST',
         ],
         'get' => [
-            'url' => '/customer/get',
+            'url' => '/customers/get',
             'method' => 'GET',
         ]
     ];

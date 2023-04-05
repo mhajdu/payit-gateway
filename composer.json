@@ -17,7 +17,6 @@
     "require": {
         "illuminate/encryption": "^8.0",
         "guzzlehttp/guzzle": "^7.2",
-        "illuminate/http": "^8.0",
-        "ext-http": "*"
+        "illuminate/http": "^8.0"
     }
 }
