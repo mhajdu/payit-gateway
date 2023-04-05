@@ -7,26 +7,24 @@ use Illuminate\Encryption\Encrypter;
 use Mhajdu\PayitGateway\Controllers\CustomerController;
 use Mhajdu\PayitGateway\Controllers\PaymentController;
 use Mhajdu\PayitGateway\Controllers\ProcessController;
-use Mhajdu\PayitGateway\Traits\Configuration;
 
 class Gateway {
-    use Configuration;
-
-    public $customerController, $paymentController;
+    public $customerController, $paymentController, $config;
     public function __construct($key = null, $secret = null) {
-        $this->createConfiguration($key, $secret);
+        //$this->createConfiguration($key, $secret);
+        $this->config = new Configuration($key, $secret);
     }
 
     public function customer(): CustomerController {
         if(!$this->customerController instanceof CustomerController) {
-            $this->customerController = new CustomerController();
+            $this->customerController = new CustomerController($this->config);
         }
         return $this->customerController;
     }
 
     public function payment(): PaymentController {
         if(!$this->paymentController instanceof PaymentController) {
-            $this->paymentController = new PaymentController();
+            $this->paymentController = new PaymentController($this->config);
         }
         return $this->paymentController;
     }
@@ -52,6 +50,6 @@ class Gateway {
     }
 
     public function processPayment(Request $request) {
-        return new ProcessController($request);
+        return new ProcessController($this->config, $request);
     }
 }

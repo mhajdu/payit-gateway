@@ -7,6 +7,8 @@ use Mhajdu\PayitGateway\Traits\Helpers;
 class PaymentController {
     use Helpers;
 
+    public $config;
+
     public static $urls = [
         'create' => [
             'url' => '/payment',
@@ -17,6 +19,10 @@ class PaymentController {
             'method' => 'GET',
         ]
     ];
+
+    public function __construct($config) {
+        $this->config = $config;
+    }
 
     public function createPayment($payment) {
         $body = [

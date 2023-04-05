@@ -1,9 +1,9 @@
 <?php
 
-namespace Mhajdu\PayitGateway\Traits;
+namespace Mhajdu\PayitGateway;
 
-trait Configuration {
-    private $key, $secret, $payit_url;
+class Configuration {
+    protected $key, $secret, $payit_url;
 
     /**
      * @param $key

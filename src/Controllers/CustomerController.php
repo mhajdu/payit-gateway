@@ -7,6 +7,9 @@ use Mhajdu\PayitGateway\Traits\Helpers;
 
 class CustomerController {
     use Helpers;
+
+    public $config;
+
     public static $urls = [
         'create' => [
             'url' => '/customer',
@@ -17,6 +20,10 @@ class CustomerController {
             'method' => 'GET',
         ]
     ];
+
+    public function __construct($config) {
+        $this->config = $config;
+    }
 
     public function createCustomer($customer) {
         $body = [
