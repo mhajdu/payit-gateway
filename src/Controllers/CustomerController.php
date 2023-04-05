@@ -35,8 +35,8 @@ class CustomerController {
             'zip' => $customer['zip'] ?? '',
             'country' => $customer['country'] ?? '',
         ];
-        $response = Http::post($this->payit_url . self::$urls['create']['url'], [
-            'application_key' => $this->key,
+        $response = Http::post($this->config->payit_url . self::$urls['create']['url'], [
+            'application_key' => $this->config->key,
             'data' => $this->encryptData($body)
         ]);
 
@@ -47,8 +47,8 @@ class CustomerController {
         $body = [
             'customer_id' => $customer_id
         ];
-        $response = Http::get($this->payit_url . self::$urls['get']['url'], [
-            'application_key' => $this->key,
+        $response = Http::get($this->config->payit_url . self::$urls['get']['url'], [
+            'application_key' => $this->config->key,
             'data' => $this->encryptData($body)
         ]);
 
@@ -59,8 +59,8 @@ class CustomerController {
         $body = [
             'customer_id' => $customer_id
         ];
-        $response = Http::get($this->payit_url . PaymentController::$urls['get']['url'], [
-            'application_key' => $this->key,
+        $response = Http::get($this->config->payit_url . PaymentController::$urls['get']['url'], [
+            'application_key' => $this->config->key,
             'data' => $this->encryptData($body)
         ]);
 

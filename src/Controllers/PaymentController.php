@@ -28,8 +28,8 @@ class PaymentController {
         $body = [
             //TODO: payment validation
         ];
-        $response = Http::post($this->payit_url . $this->urls['create']['url'], [
-            'application_key' => $this->key,
+        $response = Http::post($this->config->payit_url . $this->urls['create']['url'], [
+            'application_key' => $this->config->key,
             'data' => $this->encryptData($body)
         ]);
 
@@ -40,8 +40,8 @@ class PaymentController {
         $body = [
             'payment_id' => $payment_id
         ];
-        $response = Http::get($this->payit_url . $this->urls['get']['url'], [
-            'application_key' => $this->key,
+        $response = Http::get($this->config->payit_url . $this->urls['get']['url'], [
+            'application_key' => $this->config->key,
             'data' => $this->encryptData($body)
         ]);
 
