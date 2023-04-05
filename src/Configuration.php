@@ -19,9 +19,9 @@ class Configuration {
         }
 
         if(env('PAYIT_ENV') == 'local' || env('APP_ENV') == 'local') {
-            $this->payit_url = 'https://payit.sk/dev';
+            $this->payit_url = 'https://secure.payit.sk/dev';
         } else {
-            $this->payit_url = 'https://payit.sk/api/v1';
+            $this->payit_url = 'https://secure.payit.sk/api/v1';
         }
     }
 

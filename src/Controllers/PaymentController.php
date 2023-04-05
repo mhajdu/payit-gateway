@@ -2,6 +2,7 @@
 
 namespace Mhajdu\PayitGateway\Controllers;
 
+use Illuminate\Support\Facades\Http;
 use Mhajdu\PayitGateway\Traits\Helpers;
 
 class PaymentController {
@@ -28,7 +29,7 @@ class PaymentController {
         $body = [
             //TODO: payment validation
         ];
-        $response = Http::post($this->config->getPayitUrl() . $this->urls['create']['url'], [
+        $response = Http::post($this->config->getPayitUrl() . self::$urls['create']['url'], [
             'application_key' => $this->config->getKey(),
             'data' => $this->encryptData($body)
         ]);
@@ -40,7 +41,7 @@ class PaymentController {
         $body = [
             'payment_id' => $payment_id
         ];
-        $response = Http::get($this->config->getPayitUrl() . $this->urls['get']['url'], [
+        $response = Http::get($this->config->getPayitUrl() . self::$urls['get']['url'], [
             'application_key' => $this->config->getKey(),
             'data' => $this->encryptData($body)
         ]);
