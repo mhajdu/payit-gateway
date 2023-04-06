@@ -28,6 +28,7 @@ class PaymentController {
     public function createPayment($payment) {
         $body = [
             //TODO: payment validation
+            ...$payment
         ];
         $response = Http::post($this->config->getPayitUrl() . self::$urls['create']['url'], [
             'application_key' => $this->config->getKey(),
