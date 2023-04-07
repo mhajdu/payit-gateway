@@ -40,7 +40,11 @@ class CustomerController {
             'data' => $this->encryptData($body)
         ]);
 
-        return $response->json();
+        if ($response->successful()) {
+            return $response->json();
+        } else {
+            throw new \Exception($response->json()['message']);
+        }
     }
 
     public function fetchCustomer($customer_id) {
@@ -52,7 +56,13 @@ class CustomerController {
             'data' => $this->encryptData($body)
         ]);
 
-        return $response->json();
+        if($response->successful()) {
+            return $response->json();
+        } else if($response->status() == 404) {
+            throw new \Exception('Customer not found');
+        } else {
+            throw new \Exception($response->json()['message']);
+        }
     }
 
     public function fetchPayments($customer_id) {

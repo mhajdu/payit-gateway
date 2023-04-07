@@ -39,16 +39,18 @@ class Gateway {
 
     public function createPaymentWithCustomer($payment, $customer) {
         $customer = $this->customer()->createCustomer($customer);
-        if($customer['status'] == 'success') {
-            $payment['customer_id'] = $customer['customer_id'];
+        if(isset($customer['id'])) {
+            $payment['customer_id'] = $customer['id'];
             $pm = $this->payment()->createPayment($payment);
-            if($pm->redirect_url) {
-                echo $pm->redirect_url;
-                return;
+            if(isset($pm['payment']['id'])) {
+                return [
+                    'customer' => $customer,
+                    ...$pm
+                ];
             }
-            return $pm;
+            throw new \Exception('Payment creation failed');
         }
-        return $customer;
+        throw new \Exception('Customer creation failed');
     }
 
     public function getCustomer($customer_id) {
